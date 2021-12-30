@@ -14,5 +14,8 @@
     <Setting Name="Architecture" Type="GameStarter.Architecture" Scope="User">
       <Value Profile="(Default)">x64</Value>
     </Setting>
+    <Setting Name="GameId" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">106498</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

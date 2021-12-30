@@ -32,6 +32,7 @@
             this.LoginPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ModeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.ArchitectureToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.gameTypeComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.WebView = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.MenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WebView)).BeginInit();
@@ -42,7 +43,8 @@
             this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.LoginPageToolStripMenuItem,
             this.ModeToolStripComboBox,
-            this.ArchitectureToolStripComboBox});
+            this.ArchitectureToolStripComboBox,
+            this.gameTypeComboBox});
             this.MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip.Name = "MenuStrip";
             this.MenuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -60,12 +62,17 @@
             // ModeToolStripComboBox
             // 
             this.ModeToolStripComboBox.Name = "ModeToolStripComboBox";
-            this.ModeToolStripComboBox.Size = new System.Drawing.Size(140, 23);
+            this.ModeToolStripComboBox.Size = new System.Drawing.Size(80, 23);
             // 
             // ArchitectureToolStripComboBox
             // 
             this.ArchitectureToolStripComboBox.Name = "ArchitectureToolStripComboBox";
             this.ArchitectureToolStripComboBox.Size = new System.Drawing.Size(93, 23);
+            // 
+            // gameTypeComboBox
+            // 
+            this.gameTypeComboBox.Name = "gameTypeComboBox";
+            this.gameTypeComboBox.Size = new System.Drawing.Size(121, 23);
             // 
             // WebView
             // 
@@ -107,6 +114,7 @@
         private System.Windows.Forms.ToolStripComboBox ModeToolStripComboBox;
         private System.Windows.Forms.ToolStripComboBox ArchitectureToolStripComboBox;
         private Microsoft.Web.WebView2.WinForms.WebView2 WebView;
+        private System.Windows.Forms.ToolStripComboBox gameTypeComboBox;
     }
 }
 

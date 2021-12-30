@@ -27,6 +27,14 @@ namespace GameStarter
             { Architecture.x64, "x64" },
         };
 
+        private readonly Dictionary<GameId, string> GameIds = new Dictionary<GameId, string>()
+        {
+            { GameId.MapleStory2, "MapleStory 2" },
+            { GameId.KartDrift, "KartRider: Drift" },
+            { GameId.KartRider, "KartRider" },
+            { GameId.MapleStory, "MapleStory" },
+        };
+
         public BrowserForm()
         {
             this.InitializeComponent();
@@ -36,6 +44,14 @@ namespace GameStarter
 
             this.ArchitectureToolStripComboBox.ComboBox.DataSource = this.StartArchitectures.Keys.ToList();
             this.ArchitectureToolStripComboBox.SelectedItem = Settings.Default.Architecture;
+
+            this.gameTypeComboBox.ComboBox.DataSource = this.GameIds.Keys.ToList();
+            this.gameTypeComboBox.SelectedItem = (GameId) Settings.Default.GameId;
+        }
+
+        private int GetSelectedGameId()
+        {
+            return (int)Enum.Parse(typeof(GameId), this.gameTypeComboBox.SelectedItem.ToString());
         }
 
         private async void BrowserForm_Load(object sender, EventArgs e)
@@ -106,8 +122,9 @@ namespace GameStarter
 
             string mode = this.StartModes[(StartMode)this.ModeToolStripComboBox.SelectedItem];
             string architecture = this.StartArchitectures[(Architecture)this.ArchitectureToolStripComboBox.SelectedItem];
+            int gameId = (int)this.gameTypeComboBox.SelectedItem;
             string locale = Arguments.StartLocale;
-            string launchUri = String.Format(UrlFormat, Arguments.GameId, nppString, a2skString, mode, locale, architecture);
+            string launchUri = String.Format(UrlFormat, gameId, nppString, a2skString, mode, locale, architecture);
             string escapedUri = Uri.EscapeUriString(launchUri);
 
             this.CloseApp(escapedUri);
@@ -172,10 +189,21 @@ namespace GameStarter
 
             Settings.Default.StartMode = (StartMode)this.ModeToolStripComboBox.SelectedItem;
             Settings.Default.Architecture = (Architecture)this.ArchitectureToolStripComboBox.SelectedItem;
+            Settings.Default.GameId = GetSelectedGameId();
 
             Settings.Default.Save();
 
             base.OnFormClosing(e);
+        }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
